@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>BIJI</title>
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="phonegap.js"></script>
+		<script src="jqm/jquery-1.12.3.min.js"></script>
+		<script src="jqm/jquery.mobile-1.4.5.js"></script>
+		<link rel="stylesheet" href="jqm/jquery.mobile-1.4.5.css">
+		<link rel="stylesheet" href="themes/temas.css" />
+  		<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+		<link rel="stylesheet" href="estilos.css" />
+	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+	
+</head>
+<body>
+	
+	
+	
+	<div data-role="page" id="logueo">
+	<img src="img/logo.png" alt="logo" id="imglog">
+		<div role="mail" class="ui-content">
+			<img src="jqm/images/ajax-loader.gif" alt="carga" id="load">
+			<div id="login">
+				<input id="entradaUsuario" type="text" placeholder="Usuario...">
+				<input id="entradaClave" type="password" placeholder="Clave...">
+				<input id="enviar" type="button" value="Ingresá">
+				<p id="estado"></p>
+			</div>	
+		</div>
+	</div>
+	
+	
+	
+	<!--vista 1-------------------------------------------------------------->
+	
+	<div data-role="page" id="v1">
+	
+			<div data-role="header">
+				<h1>Notas</h1>
+				<a href="#submenu1" 
+					data-role="button" 
+					data-icon="bars" 
+					data-iconpos="notext" 
+					class="ui-btn-left ui-nodisc-icon"
+					data-rel="open"
+					>Panel</a>
+			</div>
+			
+			<div role="main" class="ui-content" id="lasnotas">
+			
+			<div data-filter="true" id="filter" data-filter-placeholder="Filtrar Notas">
+				
+			
+			</div>
+			</div>
+			
+			<div data-role="footer" data-position="fixed" style="text-align:center;">
+				<a href="#abajo" id="spinner"
+					data-role="button" 
+					data-icon="carat-u"
+					data-iconpos="notext"
+					class="ui-nodisc-icon">spinner</a>
+			</div>
+			
+			<div id="abajo">
+				<ul data-role="listview">
+					<li><a href="#v2" id="addnote" data-transition="slideup" class="botones ui-nodisc-icon">Nueva Nota</a></li>
+					<li><a href="#v3" id="addlist" data-transition="slideup" class="botones ui-nodisc-icon">Nueva Lista</a></li>
+					<li><a href="#v4" id="newimg" data-transition="slideup" class="botones ui-nodisc-icon">Nueva imagen</a></li>
+				</ul>
+			</div>
+			
+			<div id="submenu1"
+				data-role="panel" 
+				data-display="overlay">
+				<div id="geometric">
+					<h2>Opciones</h2>
+				</div>
+				
+				<div>
+				<img style="width:100px;" id="foto" src="img/profile.png"/>
+				<button onclick="sacarFoto();" data-icon="plus" data-iconpos="right" class="botones ui-nodisc-icon">Cambiar foto de perfil</button>
+				</div>
+				
+				<br>
+				
+				<ul data-role="listview" >
+				
+					<label for="cambio">Modo Nocturno</label>
+            		<select id="cambio" data-role="slider" >
+                	<option value="a">Off</option>
+                	<option value="b">On</option>
+            </select> 
+				    
+					<li data-icon="informacion"><a href="#v5" data-rel="dialog" data-transition="pop" data-role="button" class="botones">Información</a></li>
+					<li data-icon="faqs" data-transition="slide" data-direction="reverse"><a href="#v6" data-role="button" class="botones">FAQs</a></li>
+					<li><a href="#" id="logout" data-role="button" class="botones">Salir</a></li>
+				</ul>
+			</div>
+			
+	</div>
+		
+	<!-- vista 2 -------------------------------------------->
+
+	<div data-role="page" id="v2">
+	
+			<div data-role="header">
+				<a href="#" data-rel="back" 
+            				data-icon="carat-l" 
+            				data-iconpos="notext"			
+            				class="ui-btn-left ui-nodisc-icon"
+							data-transition="slideup"
+							data-direction="reverse">volver</a>
+			</div>
+			
+			<div data-role="main" class="ui-content" id="agregar">
+				<h2>Nueva Nota</h2>
+				<input type="text" placeholder="Título..." id="titulo" >
+			
+				<textarea cols="30" rows="10" placeholder="Tu nota..." id="nota"></textarea >
+				
+				<input type="button" value="Guardar" id="guardarnota">
+				
+			</div>
+			
+			
+		</div>
+		
+	<!-----vista 3---------------------------------->
+
+	<div data-role="page" id="v3">
+	
+			<div data-role="header">
+				<a href="#" data-rel="back" 
+            				data-icon="carat-l" 
+            				data-iconpos="notext"			
+            				class="ui-btn-left ui-nodisc-icon"
+							data-transition="slideup"
+							data-direction="reverse">volver</a>
+			</div>
+			
+			<div data-role="main" class="ui-content" id="agregar2">
+				<h2>Nueva Lista</h2>
+				<input type="text" placeholder="Título..." id="titulo2">
+				
+				<div><input type="text" name="mytext[]" id="nota2" placeholder="Ítem..."></div>
+    			<button id="nuevoitem">Añadir dato</button>
+				
+				<ul id="listatemporal">
+				</ul>
+				
+				<br>
+				<input type="button" value="Guardar" id="guardarnota2">
+				
+			</div>
+			
+			
+		</div>
+	
+	
+	<!----------vista 4------------------------------->
+	
+	<div data-role="page" id="v4">
+	
+	<div data-role="header">
+				<a href="#" data-rel="back" 
+            				data-icon="carat-l" 
+            				data-iconpos="notext"			
+            				class="ui-btn-left ui-nodisc-icon"
+							data-transition="slideup"
+							data-direction="reverse">volver</a>
+			</div>
+			
+			<div data-role="main" class="ui-content" id="agregar3">
+				<h2>Nueva Imagen</h2>
+				<input type="text" placeholder="Título..." id="titulo3">
+				
+				<input type="file" name="archivo" id="archivo"/>
+				<div id="salida"></div>
+				<input type="button" value="Eliminar Imagen" id="vaciar"/>
+				<br>
+				<input type="button" value="Guardar" id="guardarnota3" >
+				
+			</div>
+	
+	</div>
+	
+	
+	<!---------vista5 -------------------------------->
+	
+	<div data-role="page" id="v5">
+	
+		<div data-role="header">
+			<a href="#" data-rel="back" 
+            				data-icon="carat-l" 
+            				data-iconpos="notext"			
+            				class="ui-btn-left ui-nodisc-icon">volver</a>
+			<h1>Información</h1>
+		</div>
+		
+		<div data-role="main" class="ui-content">
+			<h2>Grupo</h2>
+			<p>Fernandez</p>
+			<p>García Tori</p>
+			<p>Rosas</p>
+				<p>Desarrollo de Aplicaciones Multiplataformas</p>
+				<p>Profesor: Omar Toyos</p>
+				<p>Diseño Multimedial 5to cuatrimestre</p>
+				<p>Año: 2017</p>
+		</div>
+	
+	</div>
+	
+	<!------vista 6------------------------------------>
+	
+	<div data-role="page" id="v6">
+	
+		<div data-role="header">
+			<a href="#" data-rel="back" 
+            				data-icon="carat-l" 
+            				data-iconpos="notext"			
+            				class="ui-btn-left ui-nodisc-icon"
+							data-transition="slide">volver</a>
+			<h1>FAQs</h1>
+		</div>
+		
+		<div data-role="main" class="ui-content">
+			<h2>Preguntas Frecuentes</h2>
+			<p><strong>¿Cómo cargar una nueva nota?</strong></p>
+			<p>Para cargar una nueva nota simplemente debes hacer tap sobre la flecha en dirección arriba, en la página principal, y luego tap en nueva nota.</p>
+			<p><strong>¿Y si quiero eliminar la nota?</strong></p>
+			<p>Fácil, dentro de la nota encontrarás un boton con una cruz "X" dentro, tocala y podrás eliminarla.</p>
+			<p><strong>¿Puedo hacer la lista del mercado?</strong></p>
+			<p>¡Los limites de la app estan en tus manos! Crea todas las notas y listas que desees y para lo que necesites.</p>
+			<br>
+			<h3>Disfruta de la app y dale rienda suelta a tu imaginación.</h3>
+		</div>
+		
+	
+	</div>
+	
+	
+	
+	<!------Script----------------------------------->
+	
+	<script src="main.js"></script>
+	
+</body>
+</html>
