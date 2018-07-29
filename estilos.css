@@ -1,0 +1,118 @@
+body{
+	font-family: 'Josefin Sans', sans-serif;
+	text-align:center;
+}
+
+
+#titulo, #titulo2{
+	text-align:center;
+}
+
+
+#load{ position: fixed; top: calc(50% - 23px); left: calc(50% - 23px); display: none}
+
+#estado{
+	background-color:#8b043b;
+	border-radius:5px;	
+	display: none; 
+	color: white; 
+	padding:20px; 
+}
+
+#logueo{
+	background:url(img/fondos/pantalla_loguin.png) center center;
+	background-size: auto 100%;
+}
+
+#imglog{
+	max-width:40%;
+	margin-top:20vh;
+	
+}
+
+#listatemporal{
+	text-align:left;
+}
+
+ul li{
+	text-align:left;
+}
+
+textarea {
+   resize: none;
+}
+
+
+.slide{
+	text-align: center;
+	padding-top:50%;
+	padding-left: 5%;
+	padding-right:5%;
+	padding-bottom:20%;
+	font-size: 2em;
+	
+}
+
+
+.card{
+	margin: 20px auto;
+	box-shadow: #8b043b 5px 5px 0px;
+	background: white;
+	padding: 5px 10px;
+	border-radius: 5px;	
+	min-height: 50px;
+	color:black;
+}
+
+#footer1{
+	text-align:center;
+	background: rgba(0, 0, 0, 0.1);
+	border:none;
+	position:fixed;
+}
+
+#abajo{
+	width: 100%;
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	bottom: 0; 
+	display: none;
+}
+
+/*ICONOS*/
+
+.ui-icon-bars:after {
+		background-image:url(img/iconos/menu.png);
+	}
+.ui-icon-carat-u:after {
+		background-image:url(img/iconos/flecha_arriba.png);
+	}
+.ui-icon-informacion:after {
+		background-image:url(img/iconos/info.png);
+	}
+.ui-icon-minus:after {
+		background-image:url(img/iconos/borrar.png);
+	}
+.ui-icon-carat-l:after {
+		background-image:url(img/iconos/flecha_a.png);
+	}
+.ui-icon-carat-r:after {
+		background-image:url(img/iconos/flecha_d.png);
+	}
+.ui-icon-mas:after {
+		background-image:url(img/iconos/mas.png);
+	}
+.ui-icon-faqs:after {
+		background-image:url(img/iconos/faqs.png);
+	}
+
+.botones{
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+#guardarnota, #titulo, #nota, #guardarnota2, #titulo2, #nota2, #nuevoitem, #titulo3, #archivo, #vaciar, #guardarnota3, input, button {
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+input { font-family: inherit; }
